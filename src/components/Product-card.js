@@ -5,7 +5,7 @@ import { Button, Card } from 'react-bootstrap';
 
 import CartContext from '../context/cart-context';
 
-function ProductCard({ title, image, price, description }) {
+function ProductCard({ id, title, image, price, description }) {
   const { dispatch } = useContext(CartContext);
   const [itemInCart] = useState(false);
 
@@ -22,7 +22,7 @@ function ProductCard({ title, image, price, description }) {
           onClick={() =>
             dispatch({
               type: 'ADD_TO_CART',
-              product: { title, image, price, description },
+              product: { id, title, image, price, description },
             })}
         >
           Add to cart
@@ -33,6 +33,7 @@ function ProductCard({ title, image, price, description }) {
 }
 
 ProductCard.propTypes = {
+  id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,

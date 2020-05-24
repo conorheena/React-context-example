@@ -15,6 +15,7 @@ function ProductGrid({ products }) {
         <Col xs={12} sm={6} md={6} lg={4} key={`product-card-${id}`}>
           <ProductCard
             data-testid="product-card"
+            id={id}
             title={title}
             image={image}
             price={price}
